@@ -1,21 +1,41 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { HomeScreen } from './screens/HomeScreen';
+import { DetailsScreen } from './screens/DetailsScreen';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const Stack = createNativeStackNavigator();
+
+// https://coolors.co/e63946-f1faee-a8dadc-457b9d-1d3557
+const GTDTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#f1faee',
+    background: '#457b9d',
+    card: '#457b9d',
+    text: '#f1faee',
   },
-});
+};
+
+const App = () => {
+  return (
+    <>
+      <NavigationContainer theme={GTDTheme}>
+        <Stack.Navigator initialRouteName={'Home'}>
+          <Stack.Screen
+            name={'Home'}
+            component={HomeScreen}
+            options={{ title: 'Getting Things Done!' }}
+          />
+          <Stack.Screen name={'Details'} component={DetailsScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <StatusBar style={'light'} />
+    </>
+  );
+};
+
+export default App;
