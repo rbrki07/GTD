@@ -1,18 +1,31 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+
+/**
+ * @typedef {Object} Item
+ * @property {string} id
+ * @property {string} title
+ * @property {boolean} done
+ */
 
 /**
  * @param {Object} props
- * @param {Object} props.item
- * @param {string} props.item.title
+ * @param {Item} props.item
+ * @param {() => void} props.onPress
  *
  * @returns {Object} React component
  */
-const GTDListItem = ({ item }) => {
+const GTDListItem = ({ item, onPress }) => {
   return (
-    <TouchableOpacity style={styles.item}>
-      <Text style={styles.text}>{item.title}</Text>
+    <TouchableOpacity onPress={onPress} style={styles.item}>
+      <Text
+        style={[
+          styles.text,
+          item.done ? { textDecorationLine: 'line-through' } : {},
+        ]}>
+        {item.title}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -20,17 +33,17 @@ const GTDListItem = ({ item }) => {
 const styles = StyleSheet.create({
   item: {
     height: 48,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   text: {
-    color: "#f1faee"
-  }
+    color: '#f1faee',
+  },
 });
 
 GTDListItem.propTypes = {
   item: PropTypes.shape({
-    title: PropTypes.string.isRequired
-  }).isRequired
+    title: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 GTDListItem.defaultProps = {};
