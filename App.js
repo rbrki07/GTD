@@ -1,10 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HomeScreen } from './screens/HomeScreen';
-import { DetailsScreen } from './screens/DetailsScreen';
+// @ts-check
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { HomeScreen } from "./screens/HomeScreen";
+import { DetailsScreen } from "./screens/DetailsScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,10 +13,10 @@ const GTDTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#f1faee',
-    background: '#457b9d',
-    card: '#457b9d',
-    text: '#f1faee',
+    primary: "#f1faee",
+    background: "#457b9d",
+    card: "#457b9d",
+    text: "#f1faee",
   },
 };
 
@@ -24,16 +24,16 @@ const App = () => {
   return (
     <>
       <NavigationContainer theme={GTDTheme}>
-        <Stack.Navigator initialRouteName={'Home'}>
+        <Stack.Navigator initialRouteName={"Home"}>
           <Stack.Screen
-            name={'Home'}
+            name={"Home"}
             component={HomeScreen}
-            options={{ title: 'Getting Things Done!' }}
+            options={{ title: "Getting Things Done!" }}
           />
-          <Stack.Screen name={'Details'} component={DetailsScreen} />
+          <Stack.Screen name={"Details"} component={DetailsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
-      <StatusBar style={'light'} />
+      <StatusBar style={"light"} />
     </>
   );
 };
