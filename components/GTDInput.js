@@ -1,12 +1,25 @@
 // @ts-check
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
+<<<<<<< HEAD
 import { Alert, StyleSheet, TextInput, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import _ from "lodash";
 // @ts-ignore
 import { GTDOptionSelector } from "./GTDOptionSelector";
+=======
+import {
+  Alert,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import * as ImagePicker from "expo-image-picker";
+import _ from "lodash";
+>>>>>>> 7c2ae7f (add input for text and image)
 
 /**
  * @param {Object} params
@@ -116,11 +129,14 @@ const GTDInput = ({ placeholder }) => {
     }
   };
 
+<<<<<<< HEAD
   const options = [
     { title: "Bild auswählen", value: "mediaLibrary" },
     { title: "Bild aufnehmen", value: "camera" },
   ];
 
+=======
+>>>>>>> 7c2ae7f (add input for text and image)
   return (
     <>
       <TextInput
@@ -145,6 +161,7 @@ const GTDInput = ({ placeholder }) => {
         clearButtonMode={"never"}
         style={styles.input}
       />
+<<<<<<< HEAD
       <View style={styles.selector}>
         <GTDOptionSelector
           title={"Bild hinzufügen"}
@@ -160,6 +177,15 @@ const GTDInput = ({ placeholder }) => {
         >
           <Ionicons name={"camera"} size={32} color={"#457b9d"} />
         </GTDOptionSelector>
+=======
+      <View style={styles.icons}>
+        <TouchableOpacity onPress={openCamera}>
+          <Ionicons name={"camera"} size={32} color={"#457b9d"} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={openMediaLibrary}>
+          <Ionicons name={"image"} size={32} color={"#457b9d"} />
+        </TouchableOpacity>
+>>>>>>> 7c2ae7f (add input for text and image)
       </View>
     </>
   );
@@ -181,12 +207,23 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.75,
     shadowRadius: 1,
   },
+<<<<<<< HEAD
   selector: {
     position: "absolute",
     top: 8,
     right: 8,
     height: 48,
     width: 36,
+=======
+  icons: {
+    position: "absolute",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    top: 8,
+    right: 8,
+    height: 48,
+    width: 70,
+>>>>>>> 7c2ae7f (add input for text and image)
     margin: 12,
   },
 });
