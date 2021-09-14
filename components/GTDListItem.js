@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+// @ts-check
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 /**
  * @typedef {Object} Item
@@ -22,8 +23,9 @@ const GTDListItem = ({ item, onPress }) => {
       <Text
         style={[
           styles.text,
-          item.done ? { textDecorationLine: 'line-through' } : {},
-        ]}>
+          item.done ? { textDecorationLine: "line-through" } : {},
+        ]}
+      >
         {item.title}
       </Text>
     </TouchableOpacity>
@@ -33,10 +35,10 @@ const GTDListItem = ({ item, onPress }) => {
 const styles = StyleSheet.create({
   item: {
     height: 48,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   text: {
-    color: '#f1faee',
+    color: "#f1faee",
   },
 });
 
