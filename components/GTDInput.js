@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Alert, StyleSheet, TextInput, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
@@ -20,6 +21,14 @@ import { Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import _ from "lodash";
 >>>>>>> 7c2ae7f (add input for text and image)
+=======
+import { Alert, StyleSheet, TextInput, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import * as ImagePicker from "expo-image-picker";
+import _ from "lodash";
+// @ts-ignore
+import { GTDOptionSelector } from "./GTDOptionSelector";
+>>>>>>> 11f6716 (add platform-specific option selector)
 
 /**
  * @param {Object} params
@@ -130,13 +139,19 @@ const GTDInput = ({ placeholder }) => {
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 11f6716 (add platform-specific option selector)
   const options = [
     { title: "Bild auswählen", value: "mediaLibrary" },
     { title: "Bild aufnehmen", value: "camera" },
   ];
 
+<<<<<<< HEAD
 =======
 >>>>>>> 7c2ae7f (add input for text and image)
+=======
+>>>>>>> 11f6716 (add platform-specific option selector)
   return (
     <>
       <TextInput
@@ -162,6 +177,9 @@ const GTDInput = ({ placeholder }) => {
         style={styles.input}
       />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 11f6716 (add platform-specific option selector)
       <View style={styles.selector}>
         <GTDOptionSelector
           title={"Bild hinzufügen"}
@@ -175,6 +193,7 @@ const GTDInput = ({ placeholder }) => {
             }
           }}
         >
+<<<<<<< HEAD
           <Ionicons name={"camera"} size={32} color={"#457b9d"} />
         </GTDOptionSelector>
 =======
@@ -186,6 +205,10 @@ const GTDInput = ({ placeholder }) => {
           <Ionicons name={"image"} size={32} color={"#457b9d"} />
         </TouchableOpacity>
 >>>>>>> 7c2ae7f (add input for text and image)
+=======
+          <Ionicons name={"camera"} size={32} color={"#457b9d"} />
+        </GTDOptionSelector>
+>>>>>>> 11f6716 (add platform-specific option selector)
       </View>
     </>
   );
@@ -208,6 +231,7 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
   },
 <<<<<<< HEAD
+<<<<<<< HEAD
   selector: {
     position: "absolute",
     top: 8,
@@ -216,14 +240,19 @@ const styles = StyleSheet.create({
     width: 36,
 =======
   icons: {
+=======
+  selector: {
+>>>>>>> 11f6716 (add platform-specific option selector)
     position: "absolute",
-    flexDirection: "row",
-    justifyContent: "space-between",
     top: 8,
     right: 8,
     height: 48,
+<<<<<<< HEAD
     width: 70,
 >>>>>>> 7c2ae7f (add input for text and image)
+=======
+    width: 36,
+>>>>>>> 11f6716 (add platform-specific option selector)
     margin: 12,
   },
 });
