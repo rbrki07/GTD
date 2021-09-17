@@ -1,16 +1,12 @@
 // @ts-check
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import {
-  Alert,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Alert, StyleSheet, TextInput, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import _ from "lodash";
+// @ts-ignore
+import { GTDOptionSelector } from "./GTDOptionSelector";
 
 /**
  * @param {Object} params
@@ -120,6 +116,11 @@ const GTDInput = ({ placeholder }) => {
     }
   };
 
+  const options = [
+    { title: "Bild auswählen", value: "mediaLibrary" },
+    { title: "Bild aufnehmen", value: "camera" },
+  ];
+
   return (
     <>
       <TextInput
@@ -144,13 +145,21 @@ const GTDInput = ({ placeholder }) => {
         clearButtonMode={"never"}
         style={styles.input}
       />
-      <View style={styles.icons}>
-        <TouchableOpacity onPress={openCamera}>
+      <View style={styles.selector}>
+        <GTDOptionSelector
+          title={"Bild hinzufügen"}
+          message={"Bild auswählen oder aufnehmen?"}
+          options={options}
+          onOptionChange={(selectedOption) => {
+            if (selectedOption.value === "mediaLibrary") {
+              openMediaLibrary();
+            } else if (selectedOption.value === "camera") {
+              openCamera();
+            }
+          }}
+        >
           <Ionicons name={"camera"} size={32} color={"#457b9d"} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={openMediaLibrary}>
-          <Ionicons name={"image"} size={32} color={"#457b9d"} />
-        </TouchableOpacity>
+        </GTDOptionSelector>
       </View>
     </>
   );
@@ -172,14 +181,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.75,
     shadowRadius: 1,
   },
-  icons: {
+  selector: {
     position: "absolute",
-    flexDirection: "row",
-    justifyContent: "space-between",
     top: 8,
     right: 8,
     height: 48,
-    width: 70,
+    width: 36,
     margin: 12,
   },
 });
