@@ -5,6 +5,9 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { HomeScreen } from "./screens/HomeScreen";
 import { DetailsScreen } from "./screens/DetailsScreen";
+import { store, persistor } from "./store/index";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,19 +25,21 @@ const GTDTheme = {
 
 const App = () => {
   return (
-    <>
-      <NavigationContainer theme={GTDTheme}>
-        <Stack.Navigator initialRouteName={"Home"}>
-          <Stack.Screen
-            name={"Home"}
-            component={HomeScreen}
-            options={{ title: "Getting Things Done!" }}
-          />
-          <Stack.Screen name={"Details"} component={DetailsScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-      <StatusBar style={"light"} />
-    </>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <NavigationContainer theme={GTDTheme}>
+          <Stack.Navigator initialRouteName={"Home"}>
+            <Stack.Screen
+              name={"Home"}
+              component={HomeScreen}
+              options={{ title: "Getting Things Done!" }}
+            />
+            <Stack.Screen name={"Details"} component={DetailsScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+        <StatusBar style={"light"} />
+      </PersistGate>
+    </Provider>
   );
 };
 

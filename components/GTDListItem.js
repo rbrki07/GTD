@@ -1,25 +1,36 @@
 // @ts-check
+// eslint-disable-next-line no-unused-vars
+import typedefs from "./../typedefs";
 import React from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-
-/**
- * @typedef {Object} Item
- * @property {string} id
- * @property {string} title
- * @property {boolean} done
- */
+import { useDispatch } from "react-redux";
+import { deleteItem, updateItem } from "./../store/items";
+import { DateTime } from "luxon";
 
 /**
  * @param {Object} props
- * @param {Item} props.item
- * @param {() => void} props.onPress
+ * @param {typedefs.Item} props.item
  *
  * @returns {Object} React component
  */
-const GTDListItem = ({ item, onPress }) => {
+const GTDListItem = ({ item }) => {
+  const dispatch = useDispatch();
+
   return (
-    <TouchableOpacity onPress={onPress} style={styles.item}>
+    <TouchableOpacity
+      onPress={() => {
+        dispatch(
+          updateItem({
+            ...item,
+            done: !item.done,
+            doneAt: !item.done ? DateTime.now().toISO() : undefined,
+          })
+        );
+      }}
+      onLongPress={() => dispatch(deleteItem(item))}
+      style={styles.item}
+    >
       <Text
         style={[
           styles.text,

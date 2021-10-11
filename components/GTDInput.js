@@ -9,6 +9,7 @@ import * as ImagePicker from "expo-image-picker";
 import _ from "lodash";
 // @ts-ignore
 import { GTDOptionSelector } from "./GTDOptionSelector";
+<<<<<<< HEAD
 =======
 import {
   Alert,
@@ -29,6 +30,11 @@ import _ from "lodash";
 // @ts-ignore
 import { GTDOptionSelector } from "./GTDOptionSelector";
 >>>>>>> 11f6716 (add platform-specific option selector)
+=======
+import { useDispatch } from "react-redux";
+import { addItem } from "./../store/items";
+import { createItem } from "./../helper/items";
+>>>>>>> 56e5a69 (add state management using redux)
 
 /**
  * @param {Object} params
@@ -148,10 +154,15 @@ const GTDInput = ({ placeholder }) => {
   ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7c2ae7f (add input for text and image)
 =======
 >>>>>>> 11f6716 (add platform-specific option selector)
+=======
+  const dispatch = useDispatch();
+
+>>>>>>> 56e5a69 (add state management using redux)
   return (
     <>
       <TextInput
@@ -163,7 +174,7 @@ const GTDInput = ({ placeholder }) => {
             e.persist();
             const text = e?.nativeEvent?.text;
             if (!_.isNil(text) && text.trim().length > 0) {
-              console.log("text", text);
+              dispatch(addItem(createItem({ title: text.trim() })));
               inputRef?.current?.clear();
             } else {
               inputRef?.current?.blur();
