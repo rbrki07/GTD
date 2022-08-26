@@ -1,40 +1,15 @@
 // @ts-check
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { Alert, StyleSheet, TextInput, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import _ from "lodash";
 // @ts-ignore
 import { GTDOptionSelector } from "./GTDOptionSelector";
-<<<<<<< HEAD
-=======
-import {
-  Alert,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import * as ImagePicker from "expo-image-picker";
-import _ from "lodash";
->>>>>>> 7c2ae7f (add input for text and image)
-=======
-import { Alert, StyleSheet, TextInput, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import * as ImagePicker from "expo-image-picker";
-import _ from "lodash";
-// @ts-ignore
-import { GTDOptionSelector } from "./GTDOptionSelector";
->>>>>>> 11f6716 (add platform-specific option selector)
-=======
 import { useDispatch } from "react-redux";
 import { addItem } from "./../store/items";
 import { createItem } from "./../helper/items";
->>>>>>> 56e5a69 (add state management using redux)
 
 /**
  * @param {Object} params
@@ -144,25 +119,13 @@ const GTDInput = ({ placeholder }) => {
     }
   };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 11f6716 (add platform-specific option selector)
   const options = [
     { title: "Bild auswählen", value: "mediaLibrary" },
     { title: "Bild aufnehmen", value: "camera" },
   ];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7c2ae7f (add input for text and image)
-=======
->>>>>>> 11f6716 (add platform-specific option selector)
-=======
   const dispatch = useDispatch();
 
->>>>>>> 56e5a69 (add state management using redux)
   return (
     <>
       <TextInput
@@ -187,10 +150,6 @@ const GTDInput = ({ placeholder }) => {
         clearButtonMode={"never"}
         style={styles.input}
       />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 11f6716 (add platform-specific option selector)
       <View style={styles.selector}>
         <GTDOptionSelector
           title={"Bild hinzufügen"}
@@ -204,22 +163,8 @@ const GTDInput = ({ placeholder }) => {
             }
           }}
         >
-<<<<<<< HEAD
           <Ionicons name={"camera"} size={32} color={"#457b9d"} />
         </GTDOptionSelector>
-=======
-      <View style={styles.icons}>
-        <TouchableOpacity onPress={openCamera}>
-          <Ionicons name={"camera"} size={32} color={"#457b9d"} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={openMediaLibrary}>
-          <Ionicons name={"image"} size={32} color={"#457b9d"} />
-        </TouchableOpacity>
->>>>>>> 7c2ae7f (add input for text and image)
-=======
-          <Ionicons name={"camera"} size={32} color={"#457b9d"} />
-        </GTDOptionSelector>
->>>>>>> 11f6716 (add platform-specific option selector)
       </View>
     </>
   );
@@ -241,29 +186,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.75,
     shadowRadius: 1,
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
   selector: {
     position: "absolute",
     top: 8,
     right: 8,
     height: 48,
     width: 36,
-=======
-  icons: {
-=======
-  selector: {
->>>>>>> 11f6716 (add platform-specific option selector)
-    position: "absolute",
-    top: 8,
-    right: 8,
-    height: 48,
-<<<<<<< HEAD
-    width: 70,
->>>>>>> 7c2ae7f (add input for text and image)
-=======
-    width: 36,
->>>>>>> 11f6716 (add platform-specific option selector)
     margin: 12,
   },
 });
